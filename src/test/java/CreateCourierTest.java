@@ -1,18 +1,14 @@
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import jdk.jshell.execution.Util;
 import org.junit.Before;
 import org.junit.Test;
 
-import static io.restassured.RestAssured.given;
 import static org.apache.commons.lang3.RandomUtils.nextInt;
 import static org.hamcrest.Matchers.equalTo;
 
 import io.qameta.allure.Step;
 
 public class CreateCourierTest {
-
-    boolean successOk = true;
 
     @Before
     public void setUp() {
@@ -30,7 +26,7 @@ public class CreateCourierTest {
         Response response = Utils.sendPostRequestCreateCourier(courier);
 
         Utils.checkStatusCode(response, Utils.successCreateStatusCode);
-        checkOkField(response, successOk);
+        checkOkField(response, Utils.successOk);
 
         Utils.deleteCourier(login, password);
     }

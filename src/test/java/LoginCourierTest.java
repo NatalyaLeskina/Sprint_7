@@ -23,6 +23,7 @@ public class LoginCourierTest {
         Courier courier = new Courier(login, password);
 
         Utils.sendPostRequestCreateCourier(courier);
+        System.out.println("login: " + login);
 
         Response loginResponse = sendPostRequestLoginCourier(courier);
 
